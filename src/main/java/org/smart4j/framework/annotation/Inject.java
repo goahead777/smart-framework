@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * 服务类注解
+ * 成员字段注解
  */
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)

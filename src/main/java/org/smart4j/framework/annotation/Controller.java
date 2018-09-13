@@ -8,7 +8,6 @@ import java.lang.annotation.Target;
 /**
  * 控制器注解
  */
-
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Controller {
