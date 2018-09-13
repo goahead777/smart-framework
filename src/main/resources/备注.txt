@@ -1,0 +1,52 @@
+0.配置类
+加载配置文件的所有信息
+1.加载指定包名下所有类
+所有service，所有controller，所有bean(service+controller)
+2.Bean容器
+所有Bean与Bean的单例
+3.IOC容器
+Bean所有成员字段，根据注解，注入实例
+4.对所有Action注解的方法，绑定请求+方法
+Request   RequestMethod+路径
+Handler   某个Controller的Method
+
+Map<Request,Handler> map....管理
+
+
+
+
+
+知识点
+1.hashCode与equals
+2.hashmap 对象作为key
+3.注解
+定义：使用关键词 @interface
+@Retention ：用来说明该注解类的生命周期。它有以下三个参数：
+RetentionPolicy.SOURCE  : 注解只保留在源文件中
+RetentionPolicy.CLASS  : 注解保留在class文件中，在加载到JVM虚拟机时丢弃
+RetentionPolicy.RUNTIME  : 注解保留在程序运行期间，此时可以通过反射获得定义在某个类上的所有注解。
+@Target :  用来说明该注解可以被声明在那些元素之前。
+ElementType.TYPE：说明该注解只能被声明在一个类前。
+ElementType.FIELD：说明该注解只能被声明在一个类的字段前。
+ElementType.METHOD：说明该注解只能被声明在一个类的方法前。
+ElementType.PARAMETER：说明该注解只能被声明在一个方法参数前。
+ElementType.CONSTRUCTOR：说明该注解只能声明在一个类的构造方法前。
+ElementType.LOCAL_VARIABLE：说明该注解只能声明在一个局部变量前。
+ElementType.ANNOTATION_TYPE：说明该注解只能声明在一个注解类型前。
+ElementType.PACKAGE：说明该注解只能声明在一个包名前。
+
+4.类名.class、Class.forName、类实例.getClass()区别
+类名.class：jvm将使用类加载器，将类装入内存(前提类还没有装入内存)，不做类初始化，返回Class对象
+Class.forName("xxx.xxx.xx"):包名+类名，装入类，执行类静态初始化，返回Class对象
+实例.getClass():对类进行静态初始化、非静态初始化；返回引用运行时真正指向的对象所属的类的class对象(子类型引用指向父类型);
+
+更多参考：java类加载机制
+
+5.反射
+运行期间获取对象类型信息的操作。传统编程在编译阶段决定使用的类型，反射可以使开发人员动态获取这些信息，编写更加可移植性的代码。
+new ClassName() ，静态加载,编译期间提供
+Class.forName("xx") 动态加载，编译时不提供，运行时按需提供
+利用反射，设置对象Field值和调用方法
+
+6.扫描指定包下所有类
+获取类加载器后，递归加载所有类到jvm(不初始化静态代码块和静态成员)
